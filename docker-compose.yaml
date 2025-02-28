@@ -4,19 +4,19 @@ services:
     build: .
     ports:
       - "8080:8080"
-    depends_on:
-      - postgres
+    # depends_on:
+    #   - postgres
     environment:
-      DBURL: postgres:5432
-      DBNAME: library-app
-      DBUSERNAME: postgres
-      DBPASSWORD: postgres
+      DBURL: ep-polished-snowflake-a2kuegdr.eu-central-1.pg.koyeb.app/koyebdb
+      DBNAME: library-app-db
+      DBUSERNAME: koyeb-adm
+      DBPASSWORD: npg_W3dUmjznO4tI
 
-  postgres:
-    image: postgres
-    ports:
-      - 5432:5432
-    environment:
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: postgres
-      POSTGRES_DB: library-app
+  # postgres:
+  #   image: postgres:latest
+  #   environment:
+  #     POSTGRES_DB: library-app-db
+  #     POSTGRES_USER: koyeb-adm
+  #     POSTGRES_PASSWORD: npg_W3dUmjznO4tI
+  #   ports:
+  #     - "5432:5432"
